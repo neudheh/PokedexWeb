@@ -2,9 +2,20 @@
 <html lang="en-GB">
 <head>
     <meta charset="utf-8">
-    
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
-    
+    <nav>
+        <h1>Pokedex</h1>
+    </nav>
+    <main>
+        {%if pokemons%}
+        {%for pokemon in pokemons%}
+        
+        {%endfor%}
+        {%else%}
+        <p>There has been no Pokemon found! Maybe modify your search?</p>
+        {%endif%}
+    </main>
 </body>
 </html>

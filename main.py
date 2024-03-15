@@ -1,6 +1,6 @@
 import sqlite3
 import csv
-from flask import Flask
+from flask import Flask, render_template, request
 
 # creates connection and cursor
 conn = sqlite3.connect("pokedex.db")
@@ -61,14 +61,15 @@ with open("Pokemon.csv") as file:
 app = Flask(__name__)
 
 # routes
-@app.route('/')
+@app.route('/', methods = ["GET", "POST"])
 def index():
-    return 'Hello from Flask!'
+    query = request.form.get("query", "SELECT * FROM Pokemon WHERE ID <= 10")
+    pokemons = c.execute(query)
+    return render_template("index.html", pokemons = pokemons)
 
 # runs flask webapp
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
-
-# commits and closes connection
-conn.commit()
-conn.close()
+    # waits till the server is shut down, and closes database and commits changes
+    conn.commit()
+    conn.close()
