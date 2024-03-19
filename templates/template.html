@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {%if message%}
+    <h2>
+        {{message}}
+    </h2>
+    {%endif%}
+    <nav>
+        <a href="{{url_for('index')}}">
+            <h1>
+                Pokedex
+            </h1>
+        </a>
+        <ul>
+            <li>
+                <a href="{{url_for('numberOfPokemon')}}">Number</a>
+            </li>
+            <li>
+                <a href="{{url_for('pokemonWithType')}}">Type</a>
+            </li>
+            <li>
+                <a href="{{url_for('pokemonWithTotalBaseStat')}}">Total Base Stat</a>
+            </li>
+            <li>
+                <a href="{{url_for('pokemonWithMinStats')}}">Minimum Stats</a>
+            </li>
+            <li>
+                <a href="{{url_for('typeWithMinHP')}}">Minimum HP</a>
+            </li>
+            <li>
+                <a href="{{url_for('legendaryWithTypes')}}">Legendary</a>
+            </li>
+            <li>
+                <a href="{{url_for('insert')}}">Insert</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        {%block body%}
+        {%endblock%}
+    </main>
+</body>
+</html>

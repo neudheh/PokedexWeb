@@ -1,0 +1,31 @@
+{%extends "template.html"%}
+{%block body%}
+<h2>Please enter the special attack, special defence, and speed of the pokemons you like to see.</h2>
+<table>
+    <form action="{{url_for('pokemonWithMinStats')}}" method="post">
+        <tr>
+            <td><label for="spatk">Special attack:</label></td>
+            <td>
+                <input type="number" name="spatk" id="spatk" placeholder="Special attack">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="spdef">Special defence:</label></td>
+            <td>
+                <input type="number" name="spdef" id="spdef" placeholder="Special defence">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="spdef">Speed:</label></td>
+            <td>
+                <input type="number" name="speed" id="speed" placeholder="Speed">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </form>
+</table>
+{%endblock%}

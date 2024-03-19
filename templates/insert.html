@@ -1,0 +1,127 @@
+{%extends "template.html"%}
+{%block body%}
+<h2>Please enter the data for the pokemon.</h2>
+<table>
+    <form action="{{url_for('insert')}}" method="post">
+        <tr>
+            <td>
+                <label for="name">Name: </label>
+            </td>
+            <td>
+                <input type="text" name="name" id="name" placeholder="Name">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="hp">HP:</label></td>
+            <td>
+                <input type="number" name="hp" id="hp" placeholder="HP">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="atk">Attack:</label></td>
+            <td>
+                <input type="number" name="atk" id="atk" placeholder="Attack">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="def">Defence:</label></td>
+            <td>
+                <input type="number" name="def" id="def" placeholder="Defence">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="spatk">Special attack:</label></td>
+            <td>
+                <input type="number" name="spatk" id="spatk" placeholder="Special attack">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="spdef">Special defence:</label></td>
+            <td>
+                <input type="number" name="spdef" id="spdef" placeholder="Special defence">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="spdef">Speed:</label></td>
+            <td>
+                <input type="number" name="speed" id="speed" placeholder="Speed">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="type1">Type 1: </label>
+            </td>
+            <td>
+                <select name="type1" id="type1">
+                    <option value="Normal">Normal</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Water">Water</option>
+                    <option value="Grass">Grass</option>
+                    <option value="Flying">Flying</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Ground">Ground</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Dark">Dark</option>
+                    <option value="Fairy">Fairy</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="type2">Type 2: </label>
+            </td>
+            <td>
+                <select name="type2" id="type2">
+                    <option value=" "> </option>
+                    <option value="Normal">Normal</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Water">Water</option>
+                    <option value="Grass">Grass</option>
+                    <option value="Flying">Flying</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Ground">Ground</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Dark">Dark</option>
+                    <option value="Fairy">Fairy</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="gen">Generation:</label></td>
+            <td>
+                <input type="number" name="gen" id="gen" placeholder="Generation">
+            </td>
+        </tr>
+        <tr>
+            <td><label for="legendary">Legendary:</label></td>
+            <td>
+                <select name="legendary" id="legendary">
+                    <option value="False">False</option>
+                    <option value="True">True</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </form>
+</table>
+{%endblock%}

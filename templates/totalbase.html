@@ -1,0 +1,19 @@
+{%extends "template.html"%}
+{%block body%}
+<h2>Please enter the total base state of the pokemons like to see.</h2>
+<table>
+    <form action="{{url_for('pokemonWithTotalBaseStat')}}" method="post">
+        <tr>
+            <td><label for="total">Total Base Stat:</label></td>
+            <td>
+                <input type="number" name="total" id="total" placeholder="Total base stat">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </form>
+</table>
+{%endblock%}

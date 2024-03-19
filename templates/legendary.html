@@ -1,0 +1,68 @@
+{%extends "template.html"%}
+{%block body%}
+<h2>Please select two pokemon types of the legendary you would like to see.</h2>
+<table>
+    <form action="{{url_for('legendaryWithTypes')}}" method="post">
+        <tr>
+            <td>
+                <label for="type1">Type 1: </label>
+            </td>
+            <td>
+                <select name="type1" id="type1">
+                    <option value="Normal">Normal</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Water">Water</option>
+                    <option value="Grass">Grass</option>
+                    <option value="Flying">Flying</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Ground">Ground</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Dark">Dark</option>
+                    <option value="Fairy">Fairy</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="type2">Type 2: </label>
+            </td>
+            <td>
+                <select name="type2" id="type2">
+                    <option value=" "> </option>
+                    <option value="Normal">Normal</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Water">Water</option>
+                    <option value="Grass">Grass</option>
+                    <option value="Flying">Flying</option>
+                    <option value="Fighting">Fighting</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Ground">Ground</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Ice">Ice</option>
+                    <option value="Bug">Bug</option>
+                    <option value="Ghost">Ghost</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Dark">Dark</option>
+                    <option value="Fairy">Fairy</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </form>
+</table>
+{%endblock%}

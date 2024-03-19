@@ -1,21 +1,58 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-</head>
-<body>
-    <nav>
-        <h1>Pokedex</h1>
-    </nav>
-    <main>
-        {%if pokemons%}
-        {%for pokemon in pokemons%}
-        
+{%extends "template.html"%}
+{%block body%}
+{%if pokemons%}
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Icon</th>
+        <th>Name</th>
+        <th>First Type</th>
+        <th>Second Type</th>
+        <th>Total</th>
+        <th>HP</th>
+        <th>Attack</th>
+        <th>Defence</th>
+        <th>Special Attack</th>
+        <th>Special Defence</th>
+        <th>Speed</th>
+        <th>Generation</th>
+        <th>Legendary</th>
+    </tr>
+    {%for pokemon in pokemons%}
+    <tr>
+        {%for data in range(pokemon | length)%}
+            {%if data == 1%}
+            <td>
+                    <img src="https://img.pokemondb.net/sprites/home/normal/2x/avif/{{pokemon[data] | lower}}.avif" width="60px" height="60px" onerror="this.onerror=null; this.src='{{url_for('static',filename='default.png')}}'">
+            </td>
+            <td>{{pokemon[data]}}</td>
+            {%elif data == 12%}
+                {%if pokemon[data] == 1%}
+                    <td>True</td>
+                {%else%}
+                    <td>False</td>
+                {%endif%}
+            {%else%}
+            <td>{{pokemon[data]}}</td>
+            {%endif%}
         {%endfor%}
-        {%else%}
-        <p>There has been no Pokemon found! Maybe modify your search?</p>
-        {%endif%}
-    </main>
-</body>
-</html>
+    </tr>
+    {%endfor%}
+</table>
+{%elif minhptypes%}
+<table>
+    <tr>
+        <th>Type 1</th>
+        <th>Count</th>
+    </tr>
+    {%for i in minhptypes%}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+    </tr>
+    {%endfor%}
+</table>
+{%else%}
+<p>There has been no Pokemon found! Maybe modify your search?</p>
+{%endif%}
+{%endblock%}
