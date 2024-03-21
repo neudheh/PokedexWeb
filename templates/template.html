@@ -6,40 +6,42 @@
 </head>
 <body>
     {%if message%}
-    <h2>
+    <h2 class="message">
         {{message}}
     </h2>
     {%endif%}
-    <nav>
-        <a href="{{url_for('index')}}">
-            <h1>
-                Pokedex
-            </h1>
-        </a>
-        <ul>
-            <li>
-                <a href="{{url_for('numberOfPokemon')}}">Number</a>
-            </li>
-            <li>
-                <a href="{{url_for('pokemonWithType')}}">Type</a>
-            </li>
-            <li>
-                <a href="{{url_for('pokemonWithTotalBaseStat')}}">Total Base Stat</a>
-            </li>
-            <li>
-                <a href="{{url_for('pokemonWithMinStats')}}">Minimum Stats</a>
-            </li>
-            <li>
-                <a href="{{url_for('typeWithMinHP')}}">Minimum HP</a>
-            </li>
-            <li>
-                <a href="{{url_for('legendaryWithTypes')}}">Legendary</a>
-            </li>
-            <li>
-                <a href="{{url_for('insert')}}">Insert</a>
-            </li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <a href="{{url_for('index')}}">
+                <h1>
+                    Pokedex
+                </h1>
+            </a>
+            <ul>
+                <li>
+                    <a href="{{url_for('numberOfPokemon')}}">Number</a>
+                </li>
+                <li>
+                    <a href="{{url_for('pokemonWithType')}}">Type</a>
+                </li>
+                <li>
+                    <a href="{{url_for('pokemonWithTotalBaseStat')}}">Total Base Stat</a>
+                </li>
+                <li>
+                    <a href="{{url_for('pokemonWithMinStats')}}">Minimum Stats</a>
+                </li>
+                <li>
+                    <a href="{{url_for('typeWithMinHP')}}">Minimum HP</a>
+                </li>
+                <li>
+                    <a href="{{url_for('legendaryWithTypes')}}">Legendary</a>
+                </li>
+                <li>
+                    <a href="{{url_for('insert')}}">Insert</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <main>
         {%block body%}
         {%endblock%}

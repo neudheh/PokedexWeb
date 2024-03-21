@@ -61,7 +61,7 @@ with open("Pokemon.csv") as file:
                     data[i] = 0
         # inserts data, except id because autoincremet amazing
         c.execute("""
-        INSERT OR REPLACE INTO Pokemon(Name, Type1, Type2, Total, HP, Attack, Defence, Sp_Atk, 
+        INSERT OR IGNORE INTO Pokemon(Name, Type1, Type2, Total, HP, Attack, Defence, Sp_Atk, 
         Sp_Def, Speed, Generation, Legendary) VALUES
         (?,?,?,?,?,?,?,?,?,?,?,?)
         """, data[1:])
@@ -102,8 +102,8 @@ def numberOfPokemon():
     if number > totalNumberOfPokemon or number <= 0:
         return render_template("number.html", message="Please enter a valid number of Pokemon.")
     # else, execute query
-    query = "SELECT * FROM Pokemon WHERE ID <= {}".format(number)
-    pokemons = get_pokemon(query)
+    query = "SELECT * FROM Pokemon"
+    pokemons = get_pokemon(query)[:number]
     return render_template("index.html", pokemons = pokemons)
 
 @app.route('/type', methods=["GET", "POST"])
@@ -205,7 +205,7 @@ def insert():
     
     total = hp + atk + defence + spatk + spdef + speed
     
-    query = """INSERT OR REPLACE INTO Pokemon (Name, Type1, Type2, Total, HP, Attack, Defence, Sp_Atk, Sp_Def, Speed, Generation, Legendary)
+    query = """INSERT OR IGNORE INTO Pokemon (Name, Type1, Type2, Total, HP, Attack, Defence, Sp_Atk, Sp_Def, Speed, Generation, Legendary)
     VALUES ('{}','{}','{}',{},{},{},{},{},{},{},{},{})
     """
     query = query.format(name, type1, type2, total, hp, atk, defence, spatk, spdef, speed, gen, legendary)
